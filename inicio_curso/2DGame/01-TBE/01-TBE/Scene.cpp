@@ -19,7 +19,7 @@ Scene::~Scene()
 void Scene::init()
 {
 	initShaders();
-	map = TileMap::createTileMap("levels/level01.txt", glm::vec2(256,256), texProgram);
+	map = TileMap::createTileMap("levels/level01.txt", glm::vec2(0,0), texProgram);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 }
@@ -38,7 +38,7 @@ void Scene::render()
 	texProgram.setUniform4f("color", 1.0f, 1.0f, 1.0f, 1.0f);
 	modelview = glm::mat4(1.0f);
 	texProgram.setUniformMatrix4f("modelview", modelview);
-	map->render();
+	map->render(glm::vec2(0, 0), texProgram);
 }
 
 void Scene::initShaders()

@@ -25,7 +25,7 @@ public:
 
 	~TileMap();
 
-	void render() const;
+	void render(const glm::vec2& minCoords, ShaderProgram& program);
 	void free();
 
 private:
@@ -42,6 +42,7 @@ private:
 	Texture tilesheet;
 	glm::vec2 tileTexSize;
 	int *map;
+	int offset, instant;
 
 };
 

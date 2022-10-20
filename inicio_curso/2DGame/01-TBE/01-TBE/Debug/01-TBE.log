@@ -1,6 +1,15 @@
-﻿  Scene.cpp
-SOIL.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(image_DXT.obj)' o en 'C:\Users\adria\Documents\VJ\Inicio_curso\2DGame\01-TBE\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-SOIL.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(image_helper.obj)' o en 'C:\Users\adria\Documents\VJ\Inicio_curso\2DGame\01-TBE\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-SOIL.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(SOIL.obj)' o en 'C:\Users\adria\Documents\VJ\Inicio_curso\2DGame\01-TBE\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-SOIL.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(stb_image_aug.obj)' o en 'C:\Users\adria\Documents\VJ\Inicio_curso\2DGame\01-TBE\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-  01-TBE.vcxproj -> C:\Users\adria\Documents\VJ\Inicio_curso\2DGame\01-TBE\Debug\01-TBE.exe
+﻿  Game.cpp
+  main.cpp
+  Scene.cpp
+  Shader.cpp
+  ShaderProgram.cpp
+  Texture.cpp
+  TileMap.cpp
+C:\Users\adria\Documents\GitHub\VJ_2D\inicio_curso\2DGame\01-TBE\01-TBE\TileMap.cpp(58,7): warning C4101: 'tile': variable local sin referencia
+  Generando código...
+  LINK : no se encontró C:\Users\adria\Documents\GitHub\VJ_2D\inicio_curso\2DGame\01-TBE\Debug\01-TBE.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+SOIL.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(image_DXT.obj)' o en 'C:\Users\adria\Documents\GitHub\VJ_2D\inicio_curso\2DGame\01-TBE\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(image_helper.obj)' o en 'C:\Users\adria\Documents\GitHub\VJ_2D\inicio_curso\2DGame\01-TBE\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(SOIL.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(SOIL.obj)' o en 'C:\Users\adria\Documents\GitHub\VJ_2D\inicio_curso\2DGame\01-TBE\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+SOIL.lib(stb_image_aug.obj) : warning LNK4099: no se encontró PDB 'vc100.pdb' con 'SOIL.lib(stb_image_aug.obj)' o en 'C:\Users\adria\Documents\GitHub\VJ_2D\inicio_curso\2DGame\01-TBE\Debug\vc100.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  01-TBE.vcxproj -> C:\Users\adria\Documents\GitHub\VJ_2D\inicio_curso\2DGame\01-TBE\Debug\01-TBE.exe

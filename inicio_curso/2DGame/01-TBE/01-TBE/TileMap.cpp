@@ -18,6 +18,8 @@ TileMap *TileMap::createTileMap(const string &levelFile, const glm::vec2 &minCoo
 
 TileMap::TileMap(const string &levelFile, const glm::vec2 &minCoords, ShaderProgram &program)
 {
+	offset = 0;
+	instant = 0;
 	loadLevel(levelFile);
 	prepareArrays(minCoords, program);
 }
@@ -29,8 +31,11 @@ TileMap::~TileMap()
 }
 
 
-void TileMap::render() const
+void TileMap::render(const glm::vec2& minCoords, ShaderProgram& program)
 {
+	
+		
+	prepareArrays(minCoords, program);
 	glEnable(GL_TEXTURE_2D);
 	tilesheet.use();
 	glBindVertexArray(vao);
@@ -117,7 +122,9 @@ void TileMap::prepareArrays(const glm::vec2 &minCoords, ShaderProgram &program)
 	int tile;
 	glm::vec2 posTile, texCoordTile[2], halfTexel;
 	vector<float> vertices;
-	
+	if (offset > -138*30) {
+		offset-=10;
+	}
 	nTiles = 0;
 	halfTexel = glm::vec2(0.5f / tilesheet.width(), 0.5f / tilesheet.height());
 	for(int j=0; j<mapSize.y; j++)
@@ -129,7 +136,7 @@ void TileMap::prepareArrays(const glm::vec2 &minCoords, ShaderProgram &program)
 			{
 				// Non-empty tile
 				nTiles++;
-				posTile = glm::vec2(minCoords.x + i * tileSize, minCoords.y + j * tileSize);
+				posTile = glm::vec2(minCoords.x + offset + i * tileSize, minCoords.y + j * tileSize);
 				texCoordTile[0] = glm::vec2(float((tile-1)%tilesheetSize.x) / tilesheetSize.x, float((tile-1)/tilesheetSize.x) / tilesheetSize.y);
 				texCoordTile[1] = texCoordTile[0] + tileTexSize;
 				//texCoordTile[0] += halfTexel;
