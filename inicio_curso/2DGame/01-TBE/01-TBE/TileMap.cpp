@@ -69,6 +69,8 @@ bool TileMap::loadLevel(const string &levelFile)
 	getline(fin, line);
 	sstream.str(line);
 	sstream >> tileSize >> blockSize;
+	tileSize *= 0.95f;
+	blockSize *= 0.95f;
 	getline(fin, line);
 	sstream.str(line);
 	sstream >> tilesheetFile;
@@ -123,7 +125,7 @@ void TileMap::prepareArrays(const glm::vec2 &minCoords, ShaderProgram &program)
 	glm::vec2 posTile, texCoordTile[2], halfTexel;
 	vector<float> vertices;
 	if (offset > -138*30) {
-		offset-=10;
+		offset-=2;
 	}
 	nTiles = 0;
 	halfTexel = glm::vec2(0.5f / tilesheet.width(), 0.5f / tilesheet.height());
