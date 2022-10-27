@@ -13,7 +13,7 @@
 
 enum PlayerAnims
 {
-	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT
+	HP3, HP2, HP1
 };
 
 
@@ -22,13 +22,16 @@ void Player::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 	bJumping = false;
 	spritesheet.loadFromFile("images/Submarine.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(97, 48), glm::vec2(1., 0.33), &spritesheet, &shaderProgram);
-	sprite->setNumberAnimations(1);
+	sprite->setNumberAnimations(3);
 
-	sprite->setAnimationSpeed(STAND_LEFT, 8);
-	sprite->addKeyframe(STAND_LEFT, glm::vec2(0.f, 0.66f));
+	sprite->setAnimationSpeed(HP3, 8);
+	sprite->addKeyframe(HP3, glm::vec2(0.f, 0.f));
 
-	sprite->setAnimationSpeed(STAND_RIGHT, 8);
-	sprite->addKeyframe(STAND_RIGHT, glm::vec2(0.f, 0.f));
+	sprite->setAnimationSpeed(HP2, 8);
+	sprite->addKeyframe(HP2, glm::vec2(0.f, 0.33f));
+
+	sprite->setAnimationSpeed(HP1, 8);
+	sprite->addKeyframe(HP1, glm::vec2(0.f, 0.66f));
 
 	// sprite->setAnimationSpeed(MOVE_LEFT, 8);
 	// sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.f));
@@ -40,7 +43,7 @@ void Player::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 	// sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
 	// sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
 
-	sprite->changeAnimation(0);
+	sprite->changeAnimation(HP1);
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 

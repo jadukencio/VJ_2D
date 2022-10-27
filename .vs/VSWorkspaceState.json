@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\inicio_curso",
+    "\\inicio_curso\\2DGame",
+    "\\inicio_curso\\2DGame\\01-TBE",
+    "\\inicio_curso\\2DGame\\01-TBE\\01-TBE"
   ],
-  "SelectedNode": "\\01-TBE.sln",
+  "SelectedNode": "\\inicio_curso\\2DGame\\01-TBE\\01-TBE\\Player.cpp",
   "PreviewInSolutionExplorer": false
 }
