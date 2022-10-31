@@ -6,9 +6,8 @@
 #include "Game.h"
 
 
-#define JUMP_ANGLE_STEP 4
-#define JUMP_HEIGHT 96
-#define FALL_STEP 4
+#define SCREEN_X 30
+#define SCREEN_Y 30
 
 
 enum PlayerAnims
@@ -19,7 +18,8 @@ enum PlayerAnims
 
 void Player::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 {
-	bJumping = false;
+
+	texProgram = shaderProgram;
 	spritesheet.loadFromFile("images/Submarine.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(97, 48), glm::vec2(1., 0.33), &spritesheet, &shaderProgram);
 	sprite->setNumberAnimations(1);
@@ -44,6 +44,7 @@ void Player::init(const glm::ivec2& tileMapPos, ShaderProgram& shaderProgram)
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 
+	cooldown = 0;
 }
 
 void Player::update(int deltaTime)
@@ -83,6 +84,14 @@ void Player::update(int deltaTime)
 			posPlayer.y -= 2;
 		}
 	}
+	if (Game::instance().getSpecialKey(GLUT_KEY_F1) && cooldown <= 0) {
+		Projectiles.push_back(new Projectile());
+		Projectiles[Projectiles.size()-1]->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
+		Projectiles[Projectiles.size() - 1]->setPosition(glm::vec2(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y))));
+		Projectiles[Projectiles.size() - 1]->setTileMap(map);
+		cooldown = 10;
+	}
+	cooldown -= 1;
 
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
 }
@@ -90,6 +99,9 @@ void Player::update(int deltaTime)
 void Player::render()
 {
 	sprite->render();
+	for (int i = 0; i < Projectiles.size(); ++i) {
+		Projectiles[i]->render();
+	}
 }
 
 void Player::setTileMap(TileMap* tileMap)
