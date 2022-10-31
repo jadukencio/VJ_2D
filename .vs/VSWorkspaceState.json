@@ -1,11 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\inicio_curso",
+    "\\inicio_curso\\2DGame",
+    "\\inicio_curso\\2DGame\\01-TBE",
+    "\\inicio_curso\\2DGame\\01-TBE\\01-TBE"
   ],
-<<<<<<< HEAD
-  "SelectedNode": "\\inicio_curso\\2DGame\\01-TBE\\01-TBE\\Sprite.cpp",
-=======
-  "SelectedNode": "\\01-TBE.sln",
->>>>>>> parent of 05ebc80 (Projectils added)
+  "SelectedNode": "\\inicio_curso\\2DGame\\01-TBE\\01-TBE\\Scene.cpp",
   "PreviewInSolutionExplorer": false
 }
